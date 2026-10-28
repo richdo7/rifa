@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifa Premiada</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0e13;
+  color: white;
+}
+
+header {
+  background: #121720;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #252c36;
+}
+
+.logo {
+  color: #f5c542;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: white;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: bold;
+}
+
+.btn {
+  background: #f5c542;
+  color: #111;
+}
+
+.btn:hover {
+  background: #ffda68;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 20px;
+  background: linear-gradient(135deg, #182334, #0b0e13);
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #f5c542;
+}
+
+.hero p {
+  color: #b8c0cc;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+main {
+  width: 90%;
+  max-width: 1100px;
+  margin: 35px auto;
+}
+
+.section-title {
+  margin-bottom: 22px;
+  font-size: 26px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: #151b25;
+  border: 1px solid #29313d;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.car-image {
+  height: 165px;
+  background: #252e3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #b8c0cc;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.price {
+  color: #f5c542;
+  font-weight: bold;
+  font-size: 21px;
+  margin: 15px 0;
+}
+
+.card button {
+  width: 100%;
+}
+
+.login-box {
+  max-width: 420px;
+  margin: 35px auto;
+  background: #151b25;
+  border: 1px solid #29313d;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  background: #0b0e13;
+  color: white;
+  border: 1px solid #384251;
+  padding: 13px;
+  border-radius: 8px;
+  margin: 8px 0 15px;
+}
+
+.login-box button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 9px;
+  margin: 20px 0;
+}
+
+.number {
+  background: #252e3b;
+  color: white;
+  padding: 13px 5px;
+}
+
+.number.selected {
+  background: #f5c542;
+  color: #111;
+}
+
+.number:disabled {
+  background: #555;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+#message {
+  margin-top: 15px;
+  color: #f5c542;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 50px;
+  background: #121720;
+  color: #aab3c0;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🏆 RIFA <span>PREMIADA</span></div>
+  <button class="btn" onclick="showLogin()">Entrar / Cadastrar</button>
+</header>
+
+<section class="hero">
+  <h1>Seu próximo prêmio pode estar <span>aqui!</span></h1>
+  <p>Confira os prêmios, conheça as campanhas e escolha seus números.</p>
+  <button class="btn" onclick="goToRifas()">Ver rifas</button>
+</section>
+
+<main>
+
+<section id="rifas">
+  <h2 class="section-title">🔥 Rifas em destaque</h2>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="car-image">🚗</div>
+      <div class="card-content">
+        <h3>Carro dos sonhos</h3>
+        <p>Campanha demonstrativa de automóvel</p>
+        <p>Valor por número:</p>
+        <div class="price">R$ 10,00</div>
+        <button class="btn" onclick="chooseRifa('Carro dos sonhos', 10)">
+          Ver números
+        </button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="car-image">🏍️</div>
+      <div class="card-content">
+        <h3>Moto esportiva</h3>
+        <p>Campanha demonstrativa de motocicleta</p>
+        <p>Valor por número:</p>
+        <div class="price">R$ 5,00</div>
+        <button class="btn" onclick="chooseRifa('Moto esportiva', 5)">
+          Ver números
+        </button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="car-image">🏎️</div>
+      <div class="card-content">
+        <h3>Carro premium</h3>
+        <p>Campanha demonstrativa de automóvel</p>
+        <p>Valor por número:</p>
+        <div class="price">R$ 15,00</div>
+        <button class="btn" onclick="chooseRifa('Carro premium', 15)">
+          Ver números
+        </button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="login" class="login-box hidden">
+  <h2 id="loginTitle">Entrar na sua conta</h2>
+
+  <form onsubmit="loginDemo(event)">
+    <label for="email">E-mail</label>
+    <input id="email" type="email" placeholder="seu@email.com" required>
+
+    <label for="password">Senha</label>
+    <input id="password" type="password"
+           placeholder="Digite sua senha" required minlength="6">
+
+    <button class="btn" type="submit">Entrar</button>
+  </form>
+
+  <button onclick="toggleRegister()">
+    Criar uma conta
+  </button>
+
+  <p id="message"></p>
+</section>
+
+<section id="selection" class="login-box hidden">
+  <h2 id="rifaTitle">Escolha seus números</h2>
+  <p>Selecione os números desejados:</p>
+
+  <div id="numbers" class="numbers"></div>
+
+  <p id="total">Total: R$ 0,00</p>
+
+  <button class="btn" onclick="confirmSelection()">
+    Continuar
+  </button>
+
+  <p id="selectionMessage"></p>
+</section>
+
+</main>
+
+<footer>
+  <p>Rifa Premiada — demonstração de interface.</p>
+  <p style="margin-top:8px">
+    Campanhas reais dependem de autorização e cumprimento
+    das regras legais aplicáveis.
+  </p>
+</footer>
+
+<script>
+let registering = false;
+let currentRifa = "";
+let currentPrice = 0;
+let selectedNumbers = [];
+
+function showLogin() {
+  document.getElementById("login").classList.remove("hidden");
+  document.getElementById("login").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function goToRifas() {
+  document.getElementById("rifas").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function toggleRegister() {
+  registering = !registering;
+
+  document.getElementById("loginTitle").textContent =
+    registering ? "Criar sua conta" : "Entrar na sua conta";
+
+  document.querySelector("#login form button").textContent =
+    registering ? "Cadastrar" : "Entrar";
+
+  document.getElementById("message").textContent =
+    registering
+      ? "Modo de demonstração: o cadastro real exige um servidor."
+      : "";
+}
+
+function loginDemo(event) {
+  event.preventDefault();
+
+  document.getElementById("message").textContent =
+    "Demonstração: login não conectado a um sistema real. " +
+    "Nenhuma conta foi criada ou autenticada.";
+}
+
+function chooseRifa(nome, preco) {
+  currentRifa = nome;
+  currentPrice = preco;
+  selectedNumbers = [];
+
+  document.getElementById("selection").classList.remove("hidden");
+  document.getElementById("rifaTitle").textContent =
+    nome + " — escolha seus números";
+
+  document.getElementById("selectionMessage").textContent = "";
+
+  const container = document.getElementById("numbers");
+  container.innerHTML = "";
+
+  for (let i = 1; i <= 30; i++) {
+    const button = document.createElement("button");
+    button.className = "number";
+    button.textContent = String(i).padStart(2, "0");
+
+    button.onclick = function() {
+      const index = selectedNumbers.indexOf(i);
+
+      if (index >= 0) {
+        selectedNumbers.splice(index, 1);
+        button.classList.remove("selected");
+      } else {
+        selectedNumbers.push(i);
+        button.classList.add("selected");
+      }
+
+      updateTotal();
+    };
+
+    container.appendChild(button);
+  }
+
+  updateTotal();
+
+  document.getElementById("selection").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function updateTotal() {
+  const total = selectedNumbers.length * currentPrice;
+
+  document.getElementById("total").textContent =
+    "Números selecionados: " + selectedNumbers.length +
+    " | Total demonstrativo: " +
+    total.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    });
+}
+
+function confirmSelection() {
+  document.getElementById("selectionMessage").textContent =
+    selectedNumbers.length === 0
+      ? "Selecione pelo menos um número."
+      : "Seleção demonstrativa: " +
+        selectedNumbers.map(n => String(n).padStart(2, "0")).join(", ") +
+        ". Nenhum bilhete foi reservado ou vendido.";
+}
+</script>
+
+</body>
+</html>
