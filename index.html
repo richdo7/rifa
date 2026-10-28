@@ -7,202 +7,154 @@
 <title>Rifa Premiada</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --gold: #f5c542;
+  --bg: #0b0e13;
+  --panel: #151b25;
+  --line: #303a49;
+  --muted: #b8c0cc;
 }
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: Arial, sans-serif;
-  background: #0b0e13;
   color: white;
+  background: var(--bg);
 }
-
 header {
   background: #121720;
-  padding: 18px 7%;
+  padding: 18px 6%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #252c36;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--line);
 }
-
-.logo {
-  color: #f5c542;
-  font-size: 25px;
-  font-weight: 900;
-}
-
-.logo span {
-  color: white;
-}
-
+.logo { font-size: 23px; font-weight: 900; color: var(--gold); }
+.logo span { color: white; }
+button, input { font: inherit; }
 button {
   cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 18px;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 9px;
   font-weight: bold;
 }
-
-.btn {
-  background: #f5c542;
-  color: #111;
+button:disabled { opacity: .5; cursor: not-allowed; }
+.gold { background: var(--gold); color: #111; }
+.gold:hover { background: #ffda68; }
+.dark-btn {
+  background: #202937;
+  color: white;
+  border: 1px solid var(--line);
 }
-
-.btn:hover {
-  background: #ffda68;
+.social {
+  width: 100%;
+  margin-top: 10px;
+  background: #fff;
+  color: #171717;
 }
-
+.social.x { background: #202020; color: white; }
 .hero {
   text-align: center;
-  padding: 65px 20px;
-  background: linear-gradient(135deg, #182334, #0b0e13);
+  padding: 62px 20px;
+  background: radial-gradient(ellipse at top, #28354b, var(--bg) 72%);
 }
-
-.hero h1 {
-  font-size: clamp(30px, 5vw, 48px);
-  margin-bottom: 15px;
-}
-
-.hero h1 span {
-  color: #f5c542;
-}
-
-.hero p {
-  color: #b8c0cc;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-main {
-  width: 90%;
-  max-width: 1100px;
-  margin: 35px auto;
-}
-
-.section-title {
-  margin-bottom: 22px;
-  font-size: 26px;
-}
-
+.hero h1 { font-size: clamp(30px, 5vw, 46px); margin-bottom: 16px; }
+.hero h1 span { color: var(--gold); }
+.hero p { color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+main { width: 90%; max-width: 1100px; margin: 35px auto; }
+h2 { margin-bottom: 18px; }
+h3 { margin-bottom: 12px; }
+.muted { color: var(--muted); line-height: 1.6; }
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
 }
-
-.card {
-  background: #151b25;
-  border: 1px solid #29313d;
+.card, .panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
 }
-
-.car-image {
-  height: 165px;
-  background: #252e3b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 80px;
+.vehicle {
+  height: 155px;
+  background: linear-gradient(140deg, #29364a, #151b25);
+  display: grid;
+  place-items: center;
+  font-size: 76px;
 }
-
-.card-content {
-  padding: 20px;
-}
-
-.card h3 {
-  margin-bottom: 12px;
-}
-
-.card p {
-  color: #b8c0cc;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.price {
-  color: #f5c542;
-  font-weight: bold;
-  font-size: 21px;
-  margin: 15px 0;
-}
-
-.card button {
-  width: 100%;
-}
-
-.login-box {
-  max-width: 420px;
-  margin: 35px auto;
-  background: #151b25;
-  border: 1px solid #29313d;
-  border-radius: 14px;
-  padding: 25px;
-}
-
-.login-box h2 {
-  margin-bottom: 20px;
-}
-
+.card-content { padding: 20px; }
+.price { color: var(--gold); font-size: 22px; font-weight: bold; margin: 15px 0; }
+.card button { width: 100%; }
+.panel { max-width: 680px; padding: 24px; margin: 25px auto; }
+.field { margin: 15px 0; }
+label { display: block; margin-bottom: 8px; font-size: 14px; }
 input {
   width: 100%;
-  background: #0b0e13;
-  color: white;
-  border: 1px solid #384251;
   padding: 13px;
   border-radius: 8px;
-  margin: 8px 0 15px;
+  background: #0b0e13;
+  color: white;
+  border: 1px solid var(--line);
 }
-
-.login-box button {
-  width: 100%;
-  margin-top: 8px;
+.panel .main-action { width: 100%; margin-top: 12px; }
+.link {
+  color: var(--gold);
+  background: none;
+  padding: 8px 0;
 }
-
+.divider { text-align: center; color: var(--muted); margin: 16px 0; }
+.payment-list { display: grid; gap: 12px; margin: 20px 0; }
+.payment-option {
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.payment-option:has(input:checked) {
+  border-color: var(--gold);
+  background: #292719;
+}
+.payment-option input { width: auto; accent-color: var(--gold); }
+.payment-option strong { display: block; margin-bottom: 5px; }
+.total { font-size: 23px; color: var(--gold); margin: 20px 0; }
+.notice {
+  background: #252b35;
+  border-radius: 8px;
+  padding: 13px;
+  margin: 14px 0;
+  color: #e0e5ed;
+  line-height: 1.6;
+  font-size: 14px;
+}
+#message { margin-top: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.hidden { display: none !important; }
 .numbers {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 9px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
   margin: 20px 0;
 }
-
-.number {
-  background: #252e3b;
-  color: white;
-  padding: 13px 5px;
-}
-
-.number.selected {
-  background: #f5c542;
-  color: #111;
-}
-
-.number:disabled {
-  background: #555;
-  color: #bbb;
-  cursor: not-allowed;
-}
-
-.hidden {
-  display: none;
-}
-
-#message {
-  margin-top: 15px;
-  color: #f5c542;
-  line-height: 1.5;
-}
-
+.number { background: #273243; color: white; padding: 12px 3px; }
+.number.selected { background: var(--gold); color: #111; }
 footer {
-  text-align: center;
-  padding: 30px 15px;
-  margin-top: 50px;
+  margin-top: 55px;
+  padding: 28px 7%;
   background: #121720;
-  color: #aab3c0;
+  color: var(--muted);
   font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  header { padding: 15px 4%; }
+  .logo { font-size: 18px; }
+  header button { padding: 10px; font-size: 12px; }
+  .panel { padding: 18px; }
 }
 </style>
 </head>
@@ -211,216 +163,385 @@ footer {
 
 <header>
   <div class="logo">🏆 RIFA <span>PREMIADA</span></div>
-  <button class="btn" onclick="showLogin()">Entrar / Cadastrar</button>
+  <button class="gold" onclick="openAccount()">Minha conta</button>
 </header>
 
 <section class="hero">
   <h1>Seu próximo prêmio pode estar <span>aqui!</span></h1>
-  <p>Confira os prêmios, conheça as campanhas e escolha seus números.</p>
-  <button class="btn" onclick="goToRifas()">Ver rifas</button>
+  <p>Conheça as campanhas e confira os detalhes dos prêmios.</p>
+  <button class="gold" onclick="document.getElementById('rifas').scrollIntoView({behavior:'smooth'})">
+    Ver campanhas
+  </button>
 </section>
 
 <main>
+  <section id="rifas">
+    <h2>🔥 Campanhas em destaque</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="vehicle">🚗</div>
+        <div class="card-content">
+          <h3>Carro dos sonhos</h3>
+          <p class="muted">Campanha demonstrativa de automóvel.</p>
+          <div class="price">R$ 10,00 <small>por número</small></div>
+          <button class="gold" onclick="chooseRifa('Carro dos sonhos',10)">Ver números</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="vehicle">🏍️</div>
+        <div class="card-content">
+          <h3>Moto esportiva</h3>
+          <p class="muted">Campanha demonstrativa de motocicleta.</p>
+          <div class="price">R$ 5,00 <small>por número</small></div>
+          <button class="gold" onclick="chooseRifa('Moto esportiva',5)">Ver números</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="vehicle">🏎️</div>
+        <div class="card-content">
+          <h3>Carro premium</h3>
+          <p class="muted">Campanha demonstrativa de automóvel.</p>
+          <div class="price">R$ 15,00 <small>por número</small></div>
+          <button class="gold" onclick="chooseRifa('Carro premium',15)">Ver números</button>
+        </div>
+      </article>
+    </div>
+    <div class="notice">
+      Demonstração de interface: as campanhas, os preços e os números abaixo
+      são ilustrativos. Nenhuma rifa ou venda real está habilitada.
+    </div>
+  </section>
 
-<section id="rifas">
-  <h2 class="section-title">🔥 Rifas em destaque</h2>
+  <section id="account" class="panel hidden">
+    <h2 id="accountTitle">Criar conta ou entrar</h2>
+    <p class="muted">Use seu e-mail ou uma conta conectada.</p>
 
-  <div class="cards">
+    <div class="field">
+      <label for="email">Seu e-mail</label>
+      <input id="email" type="email" placeholder="voce@email.com" autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="password">Senha (mínimo de 8 caracteres)</label>
+      <input id="password" type="password" minlength="8"
+             placeholder="Digite sua senha" autocomplete="current-password">
+    </div>
 
-    <article class="card">
-      <div class="car-image">🚗</div>
-      <div class="card-content">
-        <h3>Carro dos sonhos</h3>
-        <p>Campanha demonstrativa de automóvel</p>
-        <p>Valor por número:</p>
-        <div class="price">R$ 10,00</div>
-        <button class="btn" onclick="chooseRifa('Carro dos sonhos', 10)">
-          Ver números
-        </button>
-      </div>
-    </article>
+    <button class="gold main-action" onclick="emailAuth()">Entrar / Cadastrar com e-mail</button>
+    <button class="link" onclick="resetPassword()">Esqueci minha senha</button>
 
-    <article class="card">
-      <div class="car-image">🏍️</div>
-      <div class="card-content">
-        <h3>Moto esportiva</h3>
-        <p>Campanha demonstrativa de motocicleta</p>
-        <p>Valor por número:</p>
-        <div class="price">R$ 5,00</div>
-        <button class="btn" onclick="chooseRifa('Moto esportiva', 5)">
-          Ver números
-        </button>
-      </div>
-    </article>
+    <div class="divider">ou continue com</div>
+    <button class="social" onclick="socialLogin('google')">G  Continuar com Google</button>
+    <button class="social x" onclick="socialLogin('twitter')">𝕏  Continuar com X (Twitter)</button>
 
-    <article class="card">
-      <div class="car-image">🏎️</div>
-      <div class="card-content">
-        <h3>Carro premium</h3>
-        <p>Campanha demonstrativa de automóvel</p>
-        <p>Valor por número:</p>
-        <div class="price">R$ 15,00</div>
-        <button class="btn" onclick="chooseRifa('Carro premium', 15)">
-          Ver números
-        </button>
-      </div>
-    </article>
+    <div id="accountMessage" role="status" aria-live="polite"></div>
+    <button class="dark-btn main-action" onclick="closeAccount()">Voltar ao site</button>
+  </section>
 
-  </div>
-</section>
+  <section id="selection" class="panel hidden">
+    <h2 id="rifaTitle">Escolha seus números</h2>
+    <p class="muted">Clique nos números para selecioná-los.</p>
+    <div id="numbers" class="numbers"></div>
+    <p id="selectedSummary" class="muted"></p>
+    <div class="total" id="total">Total: R$ 0,00</div>
+    <button class="gold main-action" onclick="goToPayment()">Continuar para pagamento</button>
+    <div id="selectionMessage" role="status" aria-live="polite"></div>
+  </section>
 
-<section id="login" class="login-box hidden">
-  <h2 id="loginTitle">Entrar na sua conta</h2>
+  <section id="payment" class="panel hidden">
+    <h2>💳 Forma de pagamento</h2>
+    <p class="muted">Escolha como gostaria de pagar.</p>
 
-  <form onsubmit="loginDemo(event)">
-    <label for="email">E-mail</label>
-    <input id="email" type="email" placeholder="seu@email.com" required>
+    <div class="notice">
+      Esta etapa é apenas visual. Para gerar um Pix, boleto ou cobrança de cartão
+      de verdade, é necessário integrar um provedor de pagamentos e um backend seguro.
+    </div>
 
-    <label for="password">Senha</label>
-    <input id="password" type="password"
-           placeholder="Digite sua senha" required minlength="6">
+    <div class="payment-list">
+      <label class="payment-option">
+        <input type="radio" name="payment" value="Pix" checked>
+        <span><strong>💠 Pix</strong><small class="muted">Pagamento instantâneo após integração.</small></span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="Cartão de crédito">
+        <span><strong>💳 Cartão de crédito</strong><small class="muted">Processado por provedor de pagamentos.</small></span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="Boleto">
+        <span><strong>📄 Boleto bancário</strong><small class="muted">Emissão e confirmação após integração.</small></span>
+      </label>
+    </div>
 
-    <button class="btn" type="submit">Entrar</button>
-  </form>
-
-  <button onclick="toggleRegister()">
-    Criar uma conta
-  </button>
-
-  <p id="message"></p>
-</section>
-
-<section id="selection" class="login-box hidden">
-  <h2 id="rifaTitle">Escolha seus números</h2>
-  <p>Selecione os números desejados:</p>
-
-  <div id="numbers" class="numbers"></div>
-
-  <p id="total">Total: R$ 0,00</p>
-
-  <button class="btn" onclick="confirmSelection()">
-    Continuar
-  </button>
-
-  <p id="selectionMessage"></p>
-</section>
-
+    <div class="total" id="paymentTotal"></div>
+    <button class="gold main-action" onclick="startPayment()">Continuar</button>
+    <button class="dark-btn main-action" onclick="backToNumbers()">Voltar aos números</button>
+    <div id="paymentMessage" role="status" aria-live="polite"></div>
+  </section>
 </main>
 
 <footer>
-  <p>Rifa Premiada — demonstração de interface.</p>
-  <p style="margin-top:8px">
-    Campanhas reais dependem de autorização e cumprimento
-    das regras legais aplicáveis.
-  </p>
+  <p>Rifa Premiada — protótipo de site.</p>
+  <p>Login social requer configuração de autenticação. Pagamentos requerem integração segura.</p>
+  <p>Rifas e sorteios pagos podem depender de autorização legal no Brasil.</p>
 </footer>
 
+<!--
+  OPCIONAL: autenticação real com Supabase.
+
+  1. Crie um projeto no Supabase.
+  2. Em Authentication, configure URL Configuration e provedores.
+  3. Cole a URL do projeto e a chave publicável abaixo.
+  4. Ative Email, Google e/ou X nas opções de autenticação.
+  5. Configure os endereços de retorno permitidos no Supabase e nos provedores.
+
+  Use somente a chave publicável/anon. NUNCA coloque service_role,
+  senhas privadas ou chaves secretas neste arquivo público.
+-->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-let registering = false;
+const SUPABASE_URL = "COLE_A_URL_DO_SEU_PROJETO";
+const SUPABASE_ANON_KEY = "COLE_SUA_CHAVE_PUBLICAVEL";
+
+let supabaseClient = null;
+
+if (
+  window.supabase &&
+  SUPABASE_URL.startsWith("https://") &&
+  !SUPABASE_URL.includes("COLE_A_URL") &&
+  SUPABASE_ANON_KEY &&
+  !SUPABASE_ANON_KEY.includes("COLE_SUA_CHAVE")
+) {
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+}
+
 let currentRifa = "";
 let currentPrice = 0;
 let selectedNumbers = [];
 
-function showLogin() {
-  document.getElementById("login").classList.remove("hidden");
-  document.getElementById("login").scrollIntoView({
-    behavior: "smooth"
+const money = value => value.toLocaleString("pt-BR", {
+  style: "currency",
+  currency: "BRL"
+});
+
+function showSection(id) {
+  ["account", "selection", "payment"].forEach(section => {
+    document.getElementById(section).classList.add("hidden");
   });
+  if (id) document.getElementById(id).classList.remove("hidden");
 }
 
-function goToRifas() {
-  document.getElementById("rifas").scrollIntoView({
-    behavior: "smooth"
-  });
+function openAccount() {
+  showSection("account");
+  document.getElementById("account").scrollIntoView({behavior:"smooth"});
 }
 
-function toggleRegister() {
-  registering = !registering;
-
-  document.getElementById("loginTitle").textContent =
-    registering ? "Criar sua conta" : "Entrar na sua conta";
-
-  document.querySelector("#login form button").textContent =
-    registering ? "Cadastrar" : "Entrar";
-
-  document.getElementById("message").textContent =
-    registering
-      ? "Modo de demonstração: o cadastro real exige um servidor."
-      : "";
+function closeAccount() {
+  document.getElementById("account").classList.add("hidden");
 }
 
-function loginDemo(event) {
-  event.preventDefault();
-
-  document.getElementById("message").textContent =
-    "Demonstração: login não conectado a um sistema real. " +
-    "Nenhuma conta foi criada ou autenticada.";
-}
-
-function chooseRifa(nome, preco) {
-  currentRifa = nome;
-  currentPrice = preco;
+function chooseRifa(name, price) {
+  currentRifa = name;
+  currentPrice = price;
   selectedNumbers = [];
+  showSection("selection");
 
-  document.getElementById("selection").classList.remove("hidden");
   document.getElementById("rifaTitle").textContent =
-    nome + " — escolha seus números";
-
-  document.getElementById("selectionMessage").textContent = "";
+    name + " — escolha seus números";
 
   const container = document.getElementById("numbers");
-  container.innerHTML = "";
+  container.replaceChildren();
 
   for (let i = 1; i <= 30; i++) {
-    const button = document.createElement("button");
-    button.className = "number";
-    button.textContent = String(i).padStart(2, "0");
+    const btn = document.createElement("button");
+    btn.className = "number";
+    btn.textContent = String(i).padStart(2, "0");
+    btn.setAttribute("aria-pressed", "false");
 
-    button.onclick = function() {
-      const index = selectedNumbers.indexOf(i);
-
-      if (index >= 0) {
-        selectedNumbers.splice(index, 1);
-        button.classList.remove("selected");
+    btn.onclick = () => {
+      if (selectedNumbers.includes(i)) {
+        selectedNumbers = selectedNumbers.filter(n => n !== i);
+        btn.classList.remove("selected");
+        btn.setAttribute("aria-pressed", "false");
       } else {
         selectedNumbers.push(i);
-        button.classList.add("selected");
+        btn.classList.add("selected");
+        btn.setAttribute("aria-pressed", "true");
       }
-
       updateTotal();
     };
 
-    container.appendChild(button);
+    container.appendChild(btn);
   }
 
   updateTotal();
-
-  document.getElementById("selection").scrollIntoView({
-    behavior: "smooth"
-  });
+  document.getElementById("selection").scrollIntoView({behavior:"smooth"});
 }
 
 function updateTotal() {
-  const total = selectedNumbers.length * currentPrice;
+  document.getElementById("selectedSummary").textContent =
+    "Números selecionados: " +
+    (selectedNumbers.map(n => String(n).padStart(2,"0")).join(", ") || "nenhum");
 
   document.getElementById("total").textContent =
-    "Números selecionados: " + selectedNumbers.length +
-    " | Total demonstrativo: " +
-    total.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL"
+    "Total: " + money(selectedNumbers.length * currentPrice);
+}
+
+function goToPayment() {
+  if (!selectedNumbers.length) {
+    document.getElementById("selectionMessage").textContent =
+      "Selecione pelo menos um número.";
+    return;
+  }
+
+  document.getElementById("selectionMessage").textContent = "";
+  document.getElementById("paymentTotal").textContent =
+    "Total: " + money(selectedNumbers.length * currentPrice);
+
+  showSection("payment");
+  document.getElementById("payment").scrollIntoView({behavior:"smooth"});
+}
+
+function backToNumbers() {
+  showSection("selection");
+  document.getElementById("selection").scrollIntoView({behavior:"smooth"});
+}
+
+function startPayment() {
+  const method = document.querySelector('input[name="payment"]:checked').value;
+  document.getElementById("paymentMessage").textContent =
+    "Método escolhido: " + method + ". " +
+    "Nenhuma cobrança foi criada. Para prosseguir, configure um provedor de pagamentos, " +
+    "um backend que valide a campanha e a autorização legal necessária.";
+}
+
+async function emailAuth() {
+  const message = document.getElementById("accountMessage");
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (!email || password.length < 8) {
+    message.textContent = "Informe um e-mail válido e uma senha de pelo menos 8 caracteres.";
+    return;
+  }
+
+  if (!supabaseClient) {
+    message.textContent =
+      "A autenticação ainda não está configurada. Configure o Supabase neste arquivo.";
+    return;
+  }
+
+  message.textContent = "Processando...";
+
+  try {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email, password
     });
+
+    if (!error) {
+      message.textContent = "Login realizado com sucesso.";
+      return;
+    }
+
+    // Não cria conta automaticamente após uma falha de login.
+    // O usuário deve escolher explicitamente o cadastro.
+    message.textContent =
+      "Não foi possível entrar. Para criar uma conta, use a opção de cadastro abaixo.";
+  } catch (e) {
+    message.textContent = "Não foi possível conectar ao serviço de autenticação.";
+  }
 }
 
-function confirmSelection() {
-  document.getElementById("selectionMessage").textContent =
-    selectedNumbers.length === 0
-      ? "Selecione pelo menos um número."
-      : "Seleção demonstrativa: " +
-        selectedNumbers.map(n => String(n).padStart(2, "0")).join(", ") +
-        ". Nenhum bilhete foi reservado ou vendido.";
+async function registerAccount() {
+  const message = document.getElementById("accountMessage");
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (!email || password.length < 8) {
+    message.textContent = "Informe um e-mail válido e uma senha de pelo menos 8 caracteres.";
+    return;
+  }
+
+  if (!supabaseClient) {
+    message.textContent = "Configure o Supabase para habilitar o cadastro real.";
+    return;
+  }
+
+  message.textContent = "Criando conta...";
+
+  try {
+    const { error } = await supabaseClient.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: window.location.origin + window.location.pathname }
+    });
+
+    message.textContent = error
+      ? "Não foi possível cadastrar: " + error.message
+      : "Cadastro solicitado. Verifique seu e-mail para confirmar a conta, se solicitado.";
+  } catch (e) {
+    message.textContent = "Não foi possível conectar ao serviço de autenticação.";
+  }
 }
+
+async function socialLogin(provider) {
+  const message = document.getElementById("accountMessage");
+
+  if (!supabaseClient) {
+    message.textContent =
+      "Configure o Supabase e ative o provedor " +
+      (provider === "google" ? "Google" : "X") +
+      " para usar este botão.";
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: window.location.href }
+    });
+
+    if (error) message.textContent = "Não foi possível iniciar o login: " + error.message;
+  } catch (e) {
+    message.textContent = "Falha ao iniciar a autenticação social.";
+  }
+}
+
+async function resetPassword() {
+  const message = document.getElementById("accountMessage");
+  const email = document.getElementById("email").value.trim();
+
+  if (!email) {
+    message.textContent = "Digite seu e-mail primeiro.";
+    return;
+  }
+
+  if (!supabaseClient) {
+    message.textContent = "Configure o Supabase para habilitar a recuperação de senha.";
+    return;
+  }
+
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + window.location.pathname
+  });
+
+  message.textContent = error
+    ? "Não foi possível enviar o pedido de recuperação."
+    : "Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.";
+}
+
+// Ações explícitas de cadastro e login.
+document.addEventListener("DOMContentLoaded", () => {
+  const account = document.getElementById("account");
+  const registerButton = document.createElement("button");
+  registerButton.className = "dark-btn main-action";
+  registerButton.textContent = "Criar nova conta com e-mail";
+  registerButton.onclick = registerAccount;
+
+  const loginButton = account.querySelector(".gold.main-action");
+  loginButton.insertAdjacentElement("afterend", registerButton);
+});
 </script>
-
 </body>
 </html>
